@@ -16,6 +16,7 @@ describe("Formats", () => {
     expect(PluralizeIfNeeded(2, PLURALIZE.SINGULAR)).toBe(PLURALIZE.SINGULAR);
   });
   it(`Format Amount - Should return ${FORMAT.OUTPUT}  if ${FORMAT.ENTRY} is passed`, () => {
+    console.log(FormatAmount(FORMAT.ENTRY))
     expect(FormatAmount(FORMAT.ENTRY)).toBe(FORMAT.OUTPUT);
   });
 });
