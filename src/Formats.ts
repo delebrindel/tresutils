@@ -1,5 +1,5 @@
-export const DashIfUndefinedOrZero = (value: number) => {
-  return value && value !== 0 ? value : '-';
+export const DashIfUndefinedOrZero = (value: number | null, characterToUse: string = '-') => {
+  return value && value !== 0 ? value : characterToUse;
 };
 
 export const PluralizeIfNeeded = (value: number, singular: string, plural?: string ) => {

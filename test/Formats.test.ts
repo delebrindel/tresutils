@@ -1,4 +1,4 @@
-import { FormatAmount, PluralizeIfNeeded } from "../src/Formats";
+import { DashIfUndefinedOrZero, FormatAmount, PluralizeIfNeeded } from "../src/Formats";
 import { FORMAT, PLURALIZE } from "./Constants";
 
 describe("Formats", () => {
@@ -13,14 +13,33 @@ describe("Formats", () => {
       PLURALIZE.PLURAL
     );
   });
-  it(`Pluralize If Needed - Should return '${PLURALIZE.SINGULAR}' if no plural is passed and 2 is passed as an argument.`, () => {
+  it(`Pluralize If Needed - Should return '${PLURALIZE.SINGULAR}' if no plural is passed and 2 is passed.`, () => {
     expect(PluralizeIfNeeded(2, PLURALIZE.SINGULAR)).toBe(PLURALIZE.SINGULAR);
   });
+  // Dash If Undefined Or Zero
+  it(`Dash If Undefined Or Zero - Should Return ${FORMAT.POSITIVE_ENTRY} if ${FORMAT.POSITIVE_ENTRY} is passed`, ()=>{
+    expect(DashIfUndefinedOrZero(FORMAT.POSITIVE_ENTRY)).toBe(FORMAT.POSITIVE_ENTRY);
+  });
+  it(`Dash If Undefined Or Zero - Should Return ${FORMAT.INVALID_OUTPUT} if ${FORMAT.ZERO} is passed`, ()=>{
+    expect(DashIfUndefinedOrZero(FORMAT.ZERO)).toBe(FORMAT.INVALID_OUTPUT);
+  });
+  it(`Dash If Undefined Or Zero - Should Return ${FORMAT.INVALID_OUTPUT} if null is passed`, ()=>{
+    expect(DashIfUndefinedOrZero(null)).toBe(FORMAT.INVALID_OUTPUT);
+  });
+  it(`Dash If Undefined Or Zero - Should Return ${FORMAT.INVALID_STRING} if ${FORMAT.ZERO} is passed`, ()=>{
+    expect(DashIfUndefinedOrZero(FORMAT.ZERO, FORMAT.INVALID_STRING)).toBe(FORMAT.INVALID_STRING);
+  });
   // Format Amount
-  it(`Format Amount - Should return '${FORMAT.POSITIVE_OUTPUT}'  if ${FORMAT.POSITIVE_ENTRY} is passed`, () => {
+  it(`Format Amount - Should return '${FORMAT.POSITIVE_OUTPUT}'  if ${FORMAT.POSITIVE_ENTRY} is passed.`, () => {
     expect(FormatAmount(FORMAT.POSITIVE_ENTRY)).toBe(FORMAT.POSITIVE_OUTPUT);
   });
-  it(`Format Amount - Should return '${FORMAT.NEGATIVE_OUTPUT}'  if ${FORMAT.NEGATIVE_ENTRY} is passed`, () => {
+  it(`Format Amount - Should return '${FORMAT.NEGATIVE_OUTPUT}'  if ${FORMAT.NEGATIVE_ENTRY} is passed.`, () => {
     expect(FormatAmount(FORMAT.NEGATIVE_ENTRY)).toBe(FORMAT.NEGATIVE_OUTPUT);
   });
+  it(`Format Amount - Should return '${FORMAT.ZERO}' if ${FORMAT.ZERO} is passed.`, ()=>{
+    expect(FormatAmount(FORMAT.ZERO)).toBe(FORMAT.ZERO.toString());
+  });
+  it(`Format Amount - Should return '${FORMAT.INVALID_OUTPUT}' if null is passed.`, ()=>{
+    expect(FormatAmount(null)).toBe(FORMAT.INVALID_OUTPUT);
+  })
 });

@@ -4,9 +4,11 @@ export enum PLURALIZE {
 }
 
 export enum FORMAT {
+  ZERO = 0,
   NEGATIVE_ENTRY = -12345,
   NEGATIVE_OUTPUT = '-12,345',
   POSITIVE_ENTRY = 7890,
   POSITIVE_OUTPUT = '7,890',
   INVALID_OUTPUT = '-',
+  INVALID_STRING = 'NA',
 }
