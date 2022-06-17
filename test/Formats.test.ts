@@ -1,4 +1,4 @@
-import { DashIfUndefinedOrZero, FormatAmount, PluralizeIfNeeded } from "../src/Formats";
+import { DashIfUndefinedOrZero, FormatAmount, FormatCurrency, PluralizeIfNeeded } from "../src/Formats";
 import { FORMAT, PLURALIZE } from "./Constants";
 
 describe("Formats", () => {
@@ -42,4 +42,17 @@ describe("Formats", () => {
   it(`Format Amount - Should return '${FORMAT.INVALID_OUTPUT}' if null is passed.`, ()=>{
     expect(FormatAmount(null)).toBe(FORMAT.INVALID_OUTPUT);
   })
+  // Format Currency
+  it(`Format Currency - Should return '${FORMAT.POSITIVE_OUTPUT_CURRENCY}'  if ${FORMAT.POSITIVE_ENTRY} is passed.`, () => {
+    expect(FormatCurrency(FORMAT.CURRENCY_SYMBOL, FORMAT.POSITIVE_ENTRY)).toBe(FORMAT.POSITIVE_OUTPUT_CURRENCY);
+  });
+  it(`Format Currency - Should return '${FORMAT.NEGATIVE_OUTPUT_CURRENCY}'  if ${FORMAT.NEGATIVE_ENTRY} is passed.`, () => {
+    expect(FormatCurrency(FORMAT.CURRENCY_SYMBOL, FORMAT.NEGATIVE_ENTRY)).toBe(FORMAT.NEGATIVE_OUTPUT_CURRENCY);
+  });
+  it(`Format Currency - Should return '${FORMAT.INVALID_OUTPUT}'  if null is passed.`, () => {
+    expect(FormatCurrency(FORMAT.CURRENCY_SYMBOL, null)).toBe(FORMAT.INVALID_OUTPUT);
+  });
+  it(`Format Currency - Should return '${FORMAT.INVALID_STRING}'  if null is passed and InvalidString is assigned.`, () => {
+    expect(FormatCurrency(FORMAT.CURRENCY_SYMBOL, null, FORMAT.INVALID_STRING)).toBe(FORMAT.INVALID_STRING);
+  });
 });

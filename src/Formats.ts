@@ -1,5 +1,5 @@
-export const DashIfUndefinedOrZero = (value: number | null, characterToUse: string = '-') => {
-  return value && value !== 0 ? value : characterToUse;
+export const DashIfUndefinedOrZero = (value: number | null, invalidCharacter: string = '-') => {
+  return value && value !== 0 ? value : invalidCharacter;
 };
 
 export const PluralizeIfNeeded = (value: number, singular: string, plural?: string ) => {
@@ -11,6 +11,16 @@ export const FormatAmount = (amount: number | null) => {
     return FormatNumberWithCommas(amount.toString());
   }
   return '-';
+};
+
+export const FormatCurrency = (currencySymbol: string, amount: number | string | null, invalidCharacter: string = '-') => {
+  if (amount !== null) {
+    const number = +amount;
+    return amount >= 0
+      ? `${currencySymbol}${FormatNumberWithCommas(number.toFixed(2))}`
+      : `- ${currencySymbol}${FormatNumberWithCommas(Math.abs(number).toFixed(2))}`;
+  }
+  return invalidCharacter;
 };
 
 const FormatNumberWithCommas = (x: string) => {
