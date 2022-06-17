@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es2017"],
+    "target": "es5",
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "./dist"
+  },
+  "include": [
+    "src/**/*"
+, "test/Formats.test.ts", "test"  ]
+}

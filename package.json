@@ -1,0 +1,42 @@
+{
+  "name": "tresutils",
+  "version": "0.0.1",
+  "description": "My utilities across multiple projects",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "publish-lib": "npm run build && npm publish",
+    "publish-beta": "npm run build && npm publish --tag beta",
+    "publish-dryrun": "npm run build && npm publish --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delebrindel/tresutils.git"
+  },
+  "keywords": [
+    "demo",
+    "typescript",
+    "library",
+    "hello world"
+  ],
+  "jest": {
+    "verbose": true,
+    "testPathIgnorePatterns": ["src","dist"]
+  },
+  "author": "Cristobal Torres <delebrindel@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/jest": "^28.1.2",
+    "jest": "^28.1.1"
+  },
+  "dependencies": {
+    "typescript": "^4.7.3"
+  }
+}
