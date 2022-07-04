@@ -9,7 +9,7 @@ export {
   DashIfUndefinedOrZero,
   PluralizeIfNeeded,
   FormatAmount,
-  FormatCurrency,
+  FormatCurrency
 } from "./Formats";
 
 export {
