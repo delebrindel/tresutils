@@ -9,9 +9,9 @@ export {
   DashIfUndefinedOrZero,
   PluralizeIfNeeded,
   FormatAmount,
-  FormatCurrency
+  FormatCurrency,
 } from "./Formats";
 
 export {
-  ParseJSONObject
+  ParseJSONObject,
 } from "./Parsers";

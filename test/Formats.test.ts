@@ -1,4 +1,4 @@
-import { DashIfUndefinedOrZero, FormatAmount, FormatCurrency, PluralizeIfNeeded } from "../src/Formats";
+import { DashIfUndefinedOrZero, FormatAmount, PluralizeIfNeeded, FormatCurrency } from "../src/Formats";
 import { FORMAT, PLURALIZE } from "./Constants";
 
 describe("Formats", () => {

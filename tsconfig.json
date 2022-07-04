@@ -9,6 +9,5 @@
     "noEmitOnError": false
   },
   "include": [
-    "src/**/*"
-, "test/Formats.test.ts", "test"  ]
+    "src/**/*"]
 }
