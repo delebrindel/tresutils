@@ -13,9 +13,9 @@ export const FormatAmount = (amount: number | null) => {
   return '-';
 };
 
-export const FormatCurrency = (currencySymbol: string, amount: number | string | null, invalidCharacter: string = '-') => {
+export const FormatCurrency = (currencySymbol: string, amount: number | string, invalidCharacter: string = '-') => {
   if (amount !== null) {
-    const number = +amount || 0;
+    const number = +amount;
     return amount >= 0
       ? `${currencySymbol}${FormatNumberWithCommas(number.toFixed(2))}`
       : `- ${currencySymbol}${FormatNumberWithCommas(Math.abs(number).toFixed(2))}`;

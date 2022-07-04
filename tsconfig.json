@@ -5,7 +5,8 @@
     "target": "es5",
     "declaration": true,
     "esModuleInterop": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "noEmitOnError": false
   },
   "include": [
     "src/**/*"
